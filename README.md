@@ -1,6 +1,8 @@
 # Amazon-connect-phone-number-blocking-with-dynamodb
 This solution allows you to maintain a blocklist of phone numbers in DynamoDB and automatically reject calls from blocked numbers at the Amazon Connect contact flow level. When a call comes in, Lambda checks the caller's number against DynamoDB and determines whether to allow or block the call.
 
+<br/>
+
 **Architecture**
 
   ✅ **Amazon Connect**: Handles incoming calls and contact flows
@@ -11,7 +13,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
   
   ✅ **CloudWatch**: Logging and monitoring
   
-
+<br/>
 
 **Features**
 
@@ -27,6 +29,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
   
   ✅ Comprehensive error handling
   
+<br/>
 
 **Quick Start**
 
@@ -38,6 +41,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 ✅ **Manage Blocklist** - Add/remove numbers as needed
 
+<br/>
 
 **Use Cases**
 
@@ -51,6 +55,8 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 ✅ Compliance and regulatory requirements
 
+<br/>
+
 **Technologies**
 
 ✅ AWS Lambda (Python 3.9+)
@@ -63,6 +69,64 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 ✅ Amazon CloudWatch
 
+<br/>
+
 📄 **License**
 
 MIT License - feel free to use this solution in your projects!
+
+<br/>
+
+🚀 **Implementation Steps**
+
+**Prerequisites**
+
+➡️ AWS Account with appropriate permissions
+
+➡️ Amazon Connect instance setup
+
+➡️ Basic knowledge of AWS services
+
+<br/>
+
+**Step 1: Create DynamoDB Table**
+
+✔️ Create a DynamoDB table named **BlockedPhoneNumbers** with:
+
+  **Partition Key**: ***phoneNumber*** (String)
+
+  **Capacity Mode**: On-demand/Provisioned
+
+<br/>
+
+✔️ **Required IAM Permissions**: (Your account should have below permissions to create the DynamoDB Table)
+
+{
+    "dynamodb:GetItem",
+    "dynamodb:PutItem", 
+    "dynamodb:DeleteItem",
+    "dynamodb:DescribeTable"
+}
+
+<br/>
+
+**Step 2: Deploy Lambda Function**
+
+✔️ Create Lambda Function:
+
+    Runtime: Python 3.9 or later
+
+    Execution role with DynamoDB and CloudWatch permissions
+
+    Use the provided Lambda code from
+
+
+
+
+
+
+
+
+
+
+
