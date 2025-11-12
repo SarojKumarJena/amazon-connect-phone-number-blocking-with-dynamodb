@@ -1,0 +1,14 @@
+{
+  "phoneNumber": {
+    "S": "+917824074474"
+  },
+  "blockedBy": {
+    "S": " GSD-123456 - Saroj"
+  },
+  "blockedDate": {
+    "S": "12/11/2025"
+  },
+  "blockedReason": {
+    "S": "SpamCaller"
+  }
+}
