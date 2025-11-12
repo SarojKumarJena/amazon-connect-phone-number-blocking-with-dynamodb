@@ -7,8 +7,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 <center>
   <img width="521" height="374" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/2a246943-ab42-4dcd-84f2-6e59907f66bc" />
-
-  </center>
+</center>
 
 
   ✅ **Amazon Connect**: Handles incoming calls and contact flows
