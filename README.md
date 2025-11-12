@@ -118,7 +118,7 @@ Create Lambda Function:
 
 ✔️ Execution role with DynamoDB and CloudWatch permissions
 
-✔️ Use the provided Lambda code from
+✔️ Use the provided Lambda code from <a href="https://github.com/SarojKumarJena/amazon-connect-phone-number-blocking-with-dynamodb/blob/main/lambda-to-communicate-with-dynamodb.py"> here </a>
 
 
 
