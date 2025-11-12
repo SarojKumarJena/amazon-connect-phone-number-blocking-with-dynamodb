@@ -1,14 +1,14 @@
 {
   "phoneNumber": {
-    "S": "+917824074474"
+    "S": "+9111111111"
   },
   "blockedBy": {
-    "S": " GSD-123456 - Saroj"
+    "S": " You can mention ticket number and name (Optional)"
   },
   "blockedDate": {
-    "S": "12/11/2025"
+    "S": "12/11/2025 (Optional)"
   },
   "blockedReason": {
-    "S": "SpamCaller"
+    "S": "SpamCaller (Optional)"
   }
 }
