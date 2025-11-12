@@ -130,8 +130,6 @@ Create Lambda Function:
 
 **Step 3: Configure Amazon Connect**
 
-<br/>
-
 **In your AWS Console, Go for your Amazon Connect instance:**
 
 ✔️ Navigate to your instance → Flows
