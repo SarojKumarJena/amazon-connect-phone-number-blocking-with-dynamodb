@@ -71,12 +71,6 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 <br/>
 
-📄 **License**
-
-MIT License - feel free to use this solution in your projects!
-
-<br/>
-
 🚀 **Implementation Steps**
 
 **Prerequisites**
@@ -108,6 +102,8 @@ Create a DynamoDB table named **BlockedPhoneNumbers** with:
         "dynamodb:DescribeTable"
     }
 
+✔️ **Add a Phone number to Test**: Add a phone number in the table **phoneNumber** section.
+
 <br/>
 
 **Step 2: Deploy Lambda Function**
@@ -116,17 +112,109 @@ Create Lambda Function:
 
 ✔️ Runtime: Python 3.9 or later
 
-✔️ Execution role with DynamoDB and CloudWatch permissions
+✔️ Use the provided Lambda code from <a href="https://github.com/SarojKumarJena/amazon-connect-phone-number-blocking-with-dynamodb/blob/main/lambda-to-communicate-with-dynamodb.py"> lambda-to-communicate-with-dynamodb.py </a>
 
-✔️ Use the provided Lambda code from <a href="https://github.com/SarojKumarJena/amazon-connect-phone-number-blocking-with-dynamodb/blob/main/lambda-to-communicate-with-dynamodb.py"> here </a>
+✔️ Deploy the Lambda
+
+✔️ Go to **Configuration** tab in lambda, select **Permission** and select the lambda role.
+
+✔️ Under the **Permission Policy** , Select **Add permissions** and add the **AmazonDynamoDBReadOnlyAccess** policy.
+
+✔️ Test the lambda function with this event:
+
+    {
+      "phoneNumber": "+1234567890"
+    }
+
+<br/>
+
+**Step 3: Configure Amazon Connect**
+
+<br/>
+
+**In your AWS Console, Go for your Amazon Connect instance:**
+
+✔️ Navigate to your instance → Flows
+
+✔️ Add Your Lambda Function
+
+<br/>
+
+You can direct download the <a href="https://github.com/SarojKumarJena/amazon-connect-phone-number-blocking-with-dynamodb/blob/main/contact-flow-with-reporting-attributes.json">contact-flow-with-reporting-attributes.json</a> and import it inside your contact flow or can follow the basic steps to configure your contact flow.
+
+<br/>
+
+**In your Amazon Connect instance:**
+
+✔️ Navigate to Routing → Contact flows
+
+✔️ Create or edit a contact flow
+
+<br/>
+
+**Add Lambda Invocation:**
+
+✔️ Use the "Invoke AWS Lambda Function" block
+
+✔️ Select your Lambda function
+
+✔️ Set timeout to 8 seconds
+
+<br/>
+
+**Configure call handling:**
+
+✔️ Check if External.isBlocked equals true
+
+    For blocked calls: Play message and disconnect
+
+    For allowed calls: Continue normal flow
+
+<br/>
+
+**Testing**
+
+➡️ Add a test number to DynamoDB
+
+➡️ Call your Amazon Connect number from the test number
+
+➡️ Verify the call is blocked with your configured message
+
+➡️ Check CloudWatch logs for debugging information
+
+<br/>
+
+**Monitoring**
+
+➡️ **CloudWatch Logs**: Lambda execution logs
+
+➡️ **DynamoDB Metrics**: Table read/write capacity
+
+➡️ **Connect Metrics**: Call volume and block statistics
+
+<br/>
+
+**Troubleshooting**
+
+Lambda timeout	➡️ Increase timeout to 8+ seconds
+
+DynamoDB errors	➡️ Verify table exists and IAM permissions
+
+Number not blocked	➡️ Check phone number normalization
+
+Connect integration error	➡️ Verify Lambda ARN and region
 
 
+<br/>
 
+🤝 **Contributing**
 
+Contributions welcome! Please feel free to submit issues and enhancement requests.
 
+<br/>
 
+📄 **License**
 
-
-
+MIT License - feel free to use this solution in your projects!
 
 
