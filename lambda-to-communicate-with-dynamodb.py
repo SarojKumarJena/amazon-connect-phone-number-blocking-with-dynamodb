@@ -16,7 +16,7 @@ def normalize_phone_number(phone_number):
     # If number starts with 0 (for local numbers) or doesn't have country code
     # Adjust based on your country code
     if cleaned.startswith('0'):
-        cleaned = '91' + cleaned[1:]  # Replace with your country code
+        cleaned = '91' + cleaned[1:]  # Optional - Replace with your country code, If you are getting any error
     elif len(cleaned) == 10:
         cleaned = '91' + cleaned  # Add country code for 10-digit numbers
     
