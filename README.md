@@ -172,15 +172,15 @@ You can direct download the <a href="https://github.com/SarojKumarJena/amazon-co
 
 **Reporting** (optional)
 
-✔️ If you want to check those blocked calls, you can set an attribute in contact flow
+If you want to check those blocked calls, you can set an attribute in contact flow
 
-    Add **Set Contact attribute** block after lambda invocation
+➡️ Add **Set Contact attribute** block after lambda invocation
 
-    Set a **User defined** attribute " **CallBlockReport** " and keep a manual value as " **BlockedCall** "
+➡️ Set a **User defined** attribute " **CallBlockReport** " and keep a manual value as " **BlockedCall** "
 
-    Go to Contact search and create a Custom Contact Attribute with name of " **CallBlockReport** "
+➡️ Go to Contact search and create a Custom Contact Attribute with name of " **CallBlockReport** "
 
-    When you want to check the blocked calls, Simply select the Custom Contact Attribute " **CallBlockReport** " from filter and add a value as " **BlockedCall** "
+➡️ When you want to check the blocked calls, Simply select the Custom Contact Attribute " **CallBlockReport** " from filter and add a value as " **BlockedCall** "
 
 <br/>
 
