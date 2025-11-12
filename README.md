@@ -91,34 +91,34 @@ MIT License - feel free to use this solution in your projects!
 
 **Step 1: Create DynamoDB Table**
 
-✔️ Create a DynamoDB table named **BlockedPhoneNumbers** with:
+Create a DynamoDB table named **BlockedPhoneNumbers** with:
 
-  **Partition Key**: ***phoneNumber*** (String)
+  ✔️ **Partition Key**: ***phoneNumber*** (String)
 
-  **Capacity Mode**: On-demand/Provisioned
+  ✔️ **Capacity Mode**: On-demand/Provisioned
 
 <br/>
 
-✔️ **Required IAM Permissions**: (Your account should have below permissions to create the DynamoDB Table)
+✔️ **Required IAM Permissions**: (Your account should have below permissions to create/update/delete the DynamoDB Table)
 
-{
-    "dynamodb:GetItem",
-    "dynamodb:PutItem", 
-    "dynamodb:DeleteItem",
-    "dynamodb:DescribeTable"
-}
+    { 
+        "dynamodb:GetItem",
+        "dynamodb:PutItem", 
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+    }
 
 <br/>
 
 **Step 2: Deploy Lambda Function**
 
-✔️ Create Lambda Function:
+Create Lambda Function:
 
-    Runtime: Python 3.9 or later
+✔️ Runtime: Python 3.9 or later
 
-    Execution role with DynamoDB and CloudWatch permissions
+✔️ Execution role with DynamoDB and CloudWatch permissions
 
-    Use the provided Lambda code from
+✔️ Use the provided Lambda code from
 
 
 
