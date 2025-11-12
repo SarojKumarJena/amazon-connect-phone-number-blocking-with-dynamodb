@@ -1,1 +1,311 @@
-{"Version":"2019-10-30","StartAction":"","Metadata":{"entryPointPosition":{"x":40,"y":40},"ActionMetadata":{"0c3fc9c3-464a-4165-b990-e2c33ea71451":{"position":{"x":1322.4,"y":-22.4}},"eae41145-c816-4807-bf21-17bfca9c1b8d":{"position":{"x":1011.2,"y":89.6},"conditionMetadata":[{"id":"ff2c91a9-b9e0-4190-9261-50bf81c50e98","operator":{"name":"Equals","value":"Equals","shortDisplay":"="},"value":"true"},{"id":"05f5ed08-daaf-4a25-9de6-b3b02278279c","operator":{"name":"Equals","value":"Equals","shortDisplay":"="},"value":"false"}]},"e3fb0818-e951-4bc6-93a2-7615a4fe80d6":{"position":{"x":714.4,"y":111.2},"parameters":{"Attributes":{"blockedDate":{"useDynamic":true},"blockedReason":{"useDynamic":true},"message":{"useDynamic":true}}},"dynamicParams":["blockedDate","blockedReason","message"]},"77ab3022-68c8-4807-b391-7835a6234a70":{"position":{"x":1664,"y":113.6}},"53efe422-150a-43d5-a91b-2a5a456f81b1":{"position":{"x":460,"y":121.6},"parameters":{"LambdaFunctionARN":{"displayName":"CheckBlockedNumber"}},"dynamicMetadata":{}},"9fd5d71d-b479-456b-960b-cba8843fc6f0":{"position":{"x":189.6,"y":138.4}},"8650b18c-72d5-4893-ab71-9c46ab6613d3":{"position":{"x":1336.8,"y":236}}},"Annotations":[]},"Actions":[{"Parameters":{"Text":"Number Blocked"},"Identifier":"0c3fc9c3-464a-4165-b990-e2c33ea71451","Type":"MessageParticipant","Transitions":{"NextAction":"77ab3022-68c8-4807-b391-7835a6234a70","Errors":[{"NextAction":"77ab3022-68c8-4807-b391-7835a6234a70","ErrorType":"NoMatchingError"}]}},{"Parameters":{"ComparisonValue":"$.External.isBlocked"},"Identifier":"eae41145-c816-4807-bf21-17bfca9c1b8d","Type":"Compare","Transitions":{"NextAction":"8650b18c-72d5-4893-ab71-9c46ab6613d3","Conditions":[{"NextAction":"0c3fc9c3-464a-4165-b990-e2c33ea71451","Condition":{"Operator":"Equals","Operands":["true"]}},{"NextAction":"8650b18c-72d5-4893-ab71-9c46ab6613d3","Condition":{"Operator":"Equals","Operands":["false"]}}],"Errors":[{"NextAction":"8650b18c-72d5-4893-ab71-9c46ab6613d3","ErrorType":"NoMatchingCondition"}]}},{"Parameters":{"Attributes":{"CallBlockReport":"BlockedCall","blockedDate":"$.LambdaInvocation.ResultData.blockedDate","blockedReason":"$.External.blockedReason","message":"$.LambdaInvocation.ResultData.message"},"TargetContact":"Current"},"Identifier":"e3fb0818-e951-4bc6-93a2-7615a4fe80d6","Type":"UpdateContactAttributes","Transitions":{"NextAction":"eae41145-c816-4807-bf21-17bfca9c1b8d","Errors":[{"NextAction":"eae41145-c816-4807-bf21-17bfca9c1b8d","ErrorType":"NoMatchingError"}]}},{"Parameters":{},"Identifier":"77ab3022-68c8-4807-b391-7835a6234a70","Type":"DisconnectParticipant","Transitions":{}},{"Parameters":{"LambdaFunctionARN":"arn:aws:lambda:us-west-2:039612887936:function:CheckBlockedNumber","InvocationTimeLimitSeconds":"8","InvocationType":"SYNCHRONOUS","ResponseValidation":{"ResponseType":"STRING_MAP"}},"Identifier":"53efe422-150a-43d5-a91b-2a5a456f81b1","Type":"InvokeLambdaFunction","Transitions":{"NextAction":"e3fb0818-e951-4bc6-93a2-7615a4fe80d6","Errors":[{"NextAction":"e3fb0818-e951-4bc6-93a2-7615a4fe80d6","ErrorType":"NoMatchingError"}]}},{"Parameters":{"FlowLoggingBehavior":"Enabled"},"Identifier":"9fd5d71d-b479-456b-960b-cba8843fc6f0","Type":"UpdateFlowLoggingBehavior","Transitions":{"NextAction":"53efe422-150a-43d5-a91b-2a5a456f81b1"}},{"Parameters":{"Text":"All fine, Can go for menu"},"Identifier":"8650b18c-72d5-4893-ab71-9c46ab6613d3","Type":"MessageParticipant","Transitions":{"NextAction":"77ab3022-68c8-4807-b391-7835a6234a70","Errors":[{"NextAction":"77ab3022-68c8-4807-b391-7835a6234a70","ErrorType":"NoMatchingError"}]}}]}
+{
+  "Version": "2019-10-30",
+  "StartAction": "9fd5d71d-b479-456b-960b-cba8843fc6f0",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "77ab3022-68c8-4807-b391-7835a6234a70": {
+        "position": {
+          "x": 1664,
+          "y": 113.6
+        }
+      },
+      "Number Not Blocked": {
+        "position": {
+          "x": 1336.8,
+          "y": 236
+        },
+        "isFriendlyName": true
+      },
+      "Number Blocked": {
+        "position": {
+          "x": 1322.4,
+          "y": -22.4
+        },
+        "isFriendlyName": true
+      },
+      "eae41145-c816-4807-bf21-17bfca9c1b8d": {
+        "position": {
+          "x": 1011.2,
+          "y": 89.6
+        },
+        "conditionMetadata": [
+          {
+            "id": "b65e3a41-d223-45cd-92aa-58c7616cdbfb",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "true"
+          },
+          {
+            "id": "7af81358-1ad0-40b3-939f-82644a8a16e2",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "false"
+          }
+        ]
+      },
+      "9fd5d71d-b479-456b-960b-cba8843fc6f0": {
+        "position": {
+          "x": 189.6,
+          "y": 138.4
+        }
+      },
+      "e3fb0818-e951-4bc6-93a2-7615a4fe80d6": {
+        "position": {
+          "x": 714.4,
+          "y": 110.4
+        },
+        "parameters": {
+          "Attributes": {
+            "blockedDate": {
+              "useDynamic": true
+            },
+            "blockedReason": {
+              "useDynamic": true
+            },
+            "message": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "blockedDate",
+          "blockedReason",
+          "message"
+        ]
+      },
+      "53efe422-150a-43d5-a91b-2a5a456f81b1": {
+        "position": {
+          "x": 460,
+          "y": 121.6
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "CheckBlockedNumber"
+          }
+        },
+        "dynamicMetadata": {}
+      }
+    },
+    "Annotations": [
+      {
+        "type": "default",
+        "id": "4e2a6418-226e-4737-b6d7-67ff5e9ecf52",
+        "content": "Connect your IVR flow from this block",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1626,
+          "y": 540
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "5cab2420-6d69-436c-974f-486c2394809f",
+        "content": "You can disconnect the blocked phone number or can connect it to further blocks",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1622,
+          "y": -348
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "a928dace-4933-4df5-9fbf-38cb1224d7f3",
+        "content": "Check the lambda (External) isBlocked attribute (true or false)",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 1236,
+          "y": 405
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "16d3eb43-ba7b-4196-897e-be59120d93e8",
+        "content": "Set attributes for reporting and information purpose",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 872,
+          "y": 390
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      },
+      {
+        "type": "default",
+        "id": "32b4476f-e323-48ee-a34a-0dc6db123adb",
+        "content": "Invoke the lambda\n\nNo need to send any input parameters",
+        "actionId": "",
+        "isFolded": false,
+        "position": {
+          "x": 528,
+          "y": 392
+        },
+        "size": {
+          "height": 295,
+          "width": 300
+        }
+      }
+    ],
+    "name": "Phone Number Blocked",
+    "description": "",
+    "type": "contactFlow",
+    "status": "published",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {},
+      "Identifier": "77ab3022-68c8-4807-b391-7835a6234a70",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Text": "All fine, Can go for menu"
+      },
+      "Identifier": "Number Not Blocked",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "77ab3022-68c8-4807-b391-7835a6234a70",
+        "Errors": [
+          {
+            "NextAction": "77ab3022-68c8-4807-b391-7835a6234a70",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Number Blocked"
+      },
+      "Identifier": "Number Blocked",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "77ab3022-68c8-4807-b391-7835a6234a70",
+        "Errors": [
+          {
+            "NextAction": "77ab3022-68c8-4807-b391-7835a6234a70",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.External.isBlocked"
+      },
+      "Identifier": "eae41145-c816-4807-bf21-17bfca9c1b8d",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Number Not Blocked",
+        "Conditions": [
+          {
+            "NextAction": "Number Blocked",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "true"
+              ]
+            }
+          },
+          {
+            "NextAction": "Number Not Blocked",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "false"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Number Not Blocked",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "9fd5d71d-b479-456b-960b-cba8843fc6f0",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "53efe422-150a-43d5-a91b-2a5a456f81b1"
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "CallBlockReport": "BlockedCall",
+          "blockedDate": "$.LambdaInvocation.ResultData.blockedDate",
+          "blockedReason": "$.External.blockedReason",
+          "message": "$.LambdaInvocation.ResultData.message"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "e3fb0818-e951-4bc6-93a2-7615a4fe80d6",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "eae41145-c816-4807-bf21-17bfca9c1b8d",
+        "Errors": [
+          {
+            "NextAction": "eae41145-c816-4807-bf21-17bfca9c1b8d",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:039612887936:function:CheckBlockedNumber",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "53efe422-150a-43d5-a91b-2a5a456f81b1",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "e3fb0818-e951-4bc6-93a2-7615a4fe80d6",
+        "Errors": [
+          {
+            "NextAction": "e3fb0818-e951-4bc6-93a2-7615a4fe80d6",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
