@@ -85,7 +85,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 **Step 1: Create DynamoDB Table**
 
-Create a DynamoDB table named **BlockedPhoneNumbers** with:
+Create a DynamoDB table named **BlockedPhoneNumbers** with: (You can directly deploy the <a href="https://github.com/SarojKumarJena/amazon-connect-phone-number-blocking-with-dynamodb/blob/main/dynamodb-table.json">dynamodb-table.json</a> as well)
 
   ✔️ **Partition Key**: ***phoneNumber*** (String)
 
@@ -162,11 +162,25 @@ You can direct download the <a href="https://github.com/SarojKumarJena/amazon-co
 
 **Configure call handling:**
 
-✔️ Check if External.isBlocked equals true
+✔️ Check if $.External.isBlocked equals true
 
     For blocked calls: Play message and disconnect
 
     For allowed calls: Continue normal flow
+
+<br/>
+
+**Reporting** (optional)
+
+✔️ If you want to check those blocked calls, you can set an attribute in contact flow
+
+    Add **Set Contact attribute** block after lambda invocation
+
+    Set a **User defined** attribute " **CallBlockReport** " and keep a manual value as " **BlockedCall** "
+
+    Go to Contact search and create a Custom Contact Attribute with name of " **CallBlockReport** "
+
+    When you want to check the blocked calls, Simply select the Custom Contact Attribute " **CallBlockReport** " from filter and add a value as " **BlockedCall** "
 
 <br/>
 
