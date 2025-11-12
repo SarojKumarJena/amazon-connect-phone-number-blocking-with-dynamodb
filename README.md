@@ -5,7 +5,10 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 
 **Architecture**
 
-<center><img width="398" height="374" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/69dc547f-101d-4906-b06f-1d9246b8e769" /></center>
+<center>
+  <img width="521" height="374" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/2a246943-ab42-4dcd-84f2-6e59907f66bc" />
+
+  </center>
 
 
   ✅ **Amazon Connect**: Handles incoming calls and contact flows
