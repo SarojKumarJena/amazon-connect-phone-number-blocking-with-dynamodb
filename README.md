@@ -4,6 +4,7 @@ This solution allows you to maintain a blocklist of phone numbers in DynamoDB an
 <br/>
 
 **Architecture**
+
 <center><img width="398" height="374" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/69dc547f-101d-4906-b06f-1d9246b8e769" /></center>
 
 
