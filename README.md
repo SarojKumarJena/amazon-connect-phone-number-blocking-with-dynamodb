@@ -105,7 +105,7 @@ Create a DynamoDB table named **BlockedPhoneNumbers** with: (You can directly de
         "dynamodb:DescribeTable"
     }
 
-✔️ **Add a Phone number to Test**: Add a phone number in the table **phoneNumber** section.
+✔️ **Add a Phone number to Test**: Add a phone number in the table, at **phoneNumber** section. Make sure to add the phone number with country code. eg. +91XXXXXXXXXX
 
 <br/>
 
